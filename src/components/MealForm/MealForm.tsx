@@ -9,10 +9,14 @@ interface Props {
   isLoading?: boolean;
 }
 
+const date = new Date();
+const existingDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
 const initialState = {
   time: '',
   description: '',
   calories: '',
+  date: existingDate,
 }
 
 const MealForm:React.FC<Props> = ({onSubmit, existingMeal = initialState, isEdit = false, isLoading = false}) => {
@@ -44,6 +48,15 @@ const MealForm:React.FC<Props> = ({onSubmit, existingMeal = initialState, isEdit
           <option value="Snack">Snack</option>
           <option value="Dinner">Dinner</option>
         </select>
+      </div>
+      <div className="form-group mt-3">
+        <label htmlFor="date">Date</label>
+        <input type="date"
+               id="date" name="date"
+               className="form-control"
+               value={meal.date}
+               onChange={onMealChange}
+        />
       </div>
       <div className="form-group mt-3">
         <label htmlFor="description">Meal description</label>

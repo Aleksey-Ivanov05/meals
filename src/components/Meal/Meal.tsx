@@ -24,7 +24,7 @@ const Meal: React.FC<Props> = ({meal, fetchResponse}) => {
   return (
     <div className="p-2 border border-dark border-2 mb-4 row">
       <div className="col-8">
-        <p className="m-0 text-muted">{meal.time}</p>
+        <span className="m-0 text-muted">{meal.date.slice(8, 10) + '.' + meal.date.slice(5, 7) + '.' + meal.date.slice(0, 4)} {meal.time}</span>
         <p className="m-0">{meal.description}</p>
       </div>
       <div className="col-2 fw-bold lh-lg my-auto">{meal.calories} kcal</div>
